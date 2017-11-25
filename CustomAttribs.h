@@ -30,7 +30,10 @@
 #define _Out_writes_bytes_to_opt_(sizeExpr, lenExpr) [out, /*optional,*/ size_is(#sizeExpr), length_is(#lenExpr)]
 #define _Out_writes_bytes_to_(sizeExpr, lenExpr) [out, size_is(#sizeExpr), length_is(#lenExpr)]
 #define _Out_writes_(sizeExpr) [out, size_is(#sizeExpr)]
+#define _Out_writes_bytes_(sizeExpr) [out, size_is(#sizeExpr)]
 #define _Out_writes_to_(sizeExpr, lenExpr) [out, size_is(#sizeExpr)]
+#define _Inout_updates_bytes_(sizeExpr) [in, out, size_is(#sizeExpr)]
+#define _Outptr_result_bytebuffer_(sizeExpr) [out, size_is(#sizeExpr)]
 #define _Deref_out_range_(relation, var)
 
 #define _In_z_ [in, __String__]
@@ -41,6 +44,8 @@
 #define _Out_opt_ [out/*, optional*/]
 #define _Inout_opt_ [in, out /*, optional*/]
 #define _Outptr_ [out]
+#define _Outptr_result_maybenull_ [out]
+#define _Outptr_opt_result_maybenull_ [out/*, optional*/]
 
 #define _Success_(e)
 
@@ -48,5 +53,4 @@
 #define _WriteOnly_ [restricted]
 #define _Filler_ [hidden]
 
-#define WINBASEAPI
-#define APIENTRY __stdcall
+#define _Check_return_

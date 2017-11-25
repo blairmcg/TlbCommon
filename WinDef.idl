@@ -66,6 +66,8 @@ typedef PVOID PSECURITY_DESCRIPTOR;
 typedef [public] DWORD ULONG;
 typedef ULONG* PULONG;
 typedef HANDLE* PHANDLE;
+//typedef [public]BYTE  BOOLEAN;
+typedef BOOLEAN *PBOOLEAN;
 
 #ifndef ULONG_PTR
 #if defined(_WIN64)
@@ -75,13 +77,15 @@ typedef unsigned long ULONG_PTR;
 #endif
 #endif
 
-typedef [public] void* PVOID;
+typedef void* PVOID;
 typedef [public] unsigned short USHORT;
 typedef [public] USHORT* PUSHORT;
 
 #define FAR
 #define OPTIONAL
 
+#define WINBASEAPI
+#define APIENTRY		__stdcall
 #define WINAPI			__stdcall
 #define VOID			void
 #define UNALIGNED
