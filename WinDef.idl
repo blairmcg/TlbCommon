@@ -32,10 +32,12 @@ typedef int *			LPINT;
 typedef long *			LPLONG;
 typedef BOOL *			LPBOOL;
 
-typedef [public]const LPSTR		LPCSTR;
-typedef [public]const LPWSTR	LPCWSTR;
 typedef char			CHAR;
+typedef [public]CHAR* LPSTR;
+typedef [public]const LPSTR		LPCSTR;
 typedef wchar_t			WCHAR;
+typedef [public]WCHAR* LPWSTR;
+typedef [public]const LPWSTR	LPCWSTR;
 
 typedef [public] LPSTR PSTR;
 typedef [public] LPCSTR PCSTR;
@@ -65,6 +67,15 @@ typedef [public] DWORD ULONG;
 typedef ULONG* PULONG;
 typedef HANDLE* PHANDLE;
 
+#ifndef ULONG_PTR
+#if defined(_WIN64)
+typedef unsigned __int64 ULONG_PTR;
+#else
+typedef unsigned long ULONG_PTR;
+#endif
+#endif
+
+typedef [public] void* PVOID;
 typedef [public] unsigned short USHORT;
 typedef [public] USHORT* PUSHORT;
 
