@@ -20,6 +20,8 @@
 #define _Counted_Array_Ptr_(sizeExpr) [_SizeIsCustomAttrib_(sizeExpr)]
 #define _Counted_String_Ptr_(sizeExpr) [__String__, _SizeIsCustomAttrib_(sizeExpr)]
 
+#define _Field_z_ [__String__]
+
 #define _ReservedCustomAttribId_ "9d8468d2-88ea-4452-b32c-992c9937e29c"
 #define _Reserved_ [custom(_ReservedCustomAttribId_, 0), hidden]
 
@@ -27,6 +29,7 @@
 #define _In_reads_opt_(sizeExpr) [in, size_is(#sizeExpr)/*, optional*/]
 #define _In_reads_bytes_(sizeExpr) [in, size_is(#sizeExpr)]
 #define _In_reads_bytes_opt_(sizeExpr) [in, /*optional, */size_is(#sizeExpr)]
+#define _In_opt_z_ [in, __String__]
 #define _Out_writes_bytes_to_opt_(sizeExpr, lenExpr) [out, /*optional,*/ size_is(#sizeExpr), length_is(#lenExpr)]
 #define _Out_writes_bytes_to_(sizeExpr, lenExpr) [out, size_is(#sizeExpr), length_is(#lenExpr)]
 #define _Out_writes_(sizeExpr) [out, size_is(#sizeExpr)]
@@ -34,6 +37,12 @@
 #define _Out_writes_bytes_opt_(sizeExpr) [out, /*optional,*/ size_is(#sizeExpr)]
 #define _Out_writes_to_(sizeExpr, lenExpr) [out, size_is(#sizeExpr)]
 #define _Out_writes_to_opt_(sizeExpr, lenExpr) [out, /*optional,*/ size_is(#sizeExpr)]
+#define _Out_writes_opt_(sizeExpr) [out]
+#define _Out_writes_z_(sizeExpr) [out, size_is(#sizeExpr), __String__]
+#define _Outptr_result_buffer_(sizeExpr) [out, size_is(#sizeExpr)]
+#define _Outptr_result_z_ [out, __String__]
+#define _COM_Outptr_ [out, pointer_default(ref)]
+#define _COM_Outptr_result_maybenull_ [out, pointer_default(ptr)]
 
 #define _Inout_updates_bytes_(sizeExpr) [in, out, size_is(#sizeExpr)]
 #define _Outptr_result_bytebuffer_(sizeExpr) [out, size_is(#sizeExpr)]
@@ -57,3 +66,5 @@
 #define _Filler_ [hidden]
 
 #define _Check_return_
+
+#define _Notnull_ [pointer_default(ref)]
