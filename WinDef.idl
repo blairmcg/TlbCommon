@@ -21,6 +21,28 @@ struct BOOL
 	long value;
 } BOOL;
 
+typedef 
+[
+	uuid(0a6e055d-001b-4817-b07d-fe982ca46330)
+]
+struct RECT 
+{
+	long left;
+	long top;
+	long right;
+	long bottom;
+} RECT;
+
+typedef 
+[
+	uuid(3bfb9cb3-8eba-450f-9479-ba75abeb8463)
+]
+struct SIZE 
+{
+	long cx;
+	long cy;
+} SIZE;
+
 typedef [public] unsigned short WORD;
 typedef [public] unsigned long DWORD;
 typedef long            LONG;
