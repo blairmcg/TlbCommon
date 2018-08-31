@@ -9,6 +9,8 @@ struct ExternalHandle
 } ExternalHandle;
 
 typedef [public] ExternalHandle HANDLE;
+typedef [public] ExternalHandle HWND;
+typedef [public] ExternalHandle HDC;
 
 typedef [public] unsigned char   BYTE;
 typedef [public] BYTE BOOLEAN;
